@@ -6,20 +6,7 @@
 A template repository for Neovim plugins.
 
 ## Using it
-
-Via `gh`:
-
-```
-$ gh repo create my-plugin -p ellisonleao/nvim-plugin-template
-```
-
-Via github web page:
-
-Click on `Use this template`
-
-![](https://docs.github.com/assets/cb-36544/images/help/repository/use-this-template-button.png)
-
-## Features and structure
+## Features
 
 - 100% Lua
 - Github actions for:
@@ -28,20 +15,4 @@ Click on `Use this template`
   - vimdocs autogeneration from README.md file
   - luarocks release (LUAROCKS_API_KEY secret configuration required)
 
-### Plugin structure
-
-```
-.
-├── lua
-│   ├── plugin_name
-│   │   └── module.lua
-│   └── plugin_name.lua
-├── Makefile
-├── plugin
-│   └── plugin_name.lua
-├── README.md
-├── tests
-│   ├── minimal_init.lua
-│   └── plugin_name
-│       └── plugin_name_spec.lua
-```
+### Commands
