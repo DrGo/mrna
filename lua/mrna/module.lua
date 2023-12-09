@@ -28,7 +28,7 @@ end
 M.go_run = function(file)
   local fname= file 
   if fname== "" then 
-    fname= vim.fn.expand(file)
+    fname= vim.fn.expand("%")
   end 
   local win = M.create_window("0.4", "0.4")
   local job_id = vim.api.nvim_open_term(win.bufnr, {})
@@ -41,7 +41,12 @@ M.go_run = function(file)
     end),
     on_stderr = vim.schedule_wrap(function(_, data)
       vim.api.nvim_chan_send(job_id, data .. "\r\n")
+	  M.close_win()
+	  vim.notify("failed\r\n".. data)
     end),
+	on_failure = function ()
+		print("failed")
+	end
   }:start()
 end
 
