@@ -8,3 +8,11 @@ vim.api.nvim_create_user_command("Nnn", function(opts)
 	end
 	require("mrna/files").Nnn(dir)
 end, { nargs = "?", complete = "dir", })
+
+vim.api.nvim_create_user_command("Rg", function(opts)
+	local dir = ""
+	if opts and #opts.fargs == 1 then
+		dir = opts.fargs[1]
+	end
+	require("mrna/grep").grep(dir)
+end, { nargs = "?",  })
